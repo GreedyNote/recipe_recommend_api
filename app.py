@@ -3,10 +3,10 @@ from flask_cors import CORS
 import recommendation
 
 app = Flask(__name__)
-app.config['JSON_AS_ASCII'] = False
+app.config['JSON_AS_ASCII'] = False  # 한글깨짐 방지
 CORS(app)
 
-@app.route('/movie', methods=['GET'])
+@app.route('/recipe', methods=['GET'])
 def recommend_movies():
         res = recommendation.recommend(request.args.get('ingredients'))
         return jsonify(res)
